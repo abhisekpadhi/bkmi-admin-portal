@@ -11,9 +11,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {Button, CircularProgress} from '@mui/material';
-import {flexColumnleft} from '@/styles/common-styles';
 import ProgressIndicator from '@/src/common/components/ProgressIndicator';
 import {router} from 'next/client';
+import {flexColumnCenter} from '@/styles/common-styles';
 
 function BizListTable(props: {rows: {id: string; name: string; address: string; phone: string; description: string}[], onClick: (id: string) => void;}) {
     const {rows} = props;
@@ -96,7 +96,7 @@ export default function BusinessesListScreen() {
     };
     if (fetching) {
         return (
-            <Box sx={{...flexColumnleft, height: '100vh'}}>
+            <Box sx={{...flexColumnCenter, height: '100vh'}}>
                 <ProgressIndicator />
             </Box>
         )
