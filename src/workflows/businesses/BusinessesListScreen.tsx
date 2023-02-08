@@ -14,6 +14,7 @@ import {Button, CircularProgress} from '@mui/material';
 import ProgressIndicator from '@/src/common/components/ProgressIndicator';
 import {router} from 'next/client';
 import {flexColumnCenter} from '@/styles/common-styles';
+import {useRouter} from 'next/router';
 
 function BizListTable(props: {rows: {id: string; name: string; address: string; phone: string; description: string}[], onClick: (id: string) => void;}) {
     const {rows} = props;
@@ -55,6 +56,7 @@ function BizListTable(props: {rows: {id: string; name: string; address: string; 
 }
 
 export default function BusinessesListScreen() {
+    const router  = useRouter();
     const [fetching, setFetching] = useState(false);
     const [fetchingMore, setFetchingMore] = useState(false);
     const [data, setData] = useState<TBusiness[]>([]);
