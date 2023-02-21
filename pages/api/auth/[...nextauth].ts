@@ -4,7 +4,7 @@ import {adminEmails} from '@/src/constants';
 import * as process from 'process';
 
 export const authOptions: AuthOptions = {
-    secret: process.env.NEXTAUTH_SECRET ?? 'notARealSecret',
+    secret: process.env.NEXTAUTH_SECRET, //openssl rand -base64 32
     // Configure one or more authentication providers
     providers: [
         GoogleProvider({
