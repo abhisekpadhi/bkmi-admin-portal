@@ -1,8 +1,10 @@
 import NextAuth, {AuthOptions} from 'next-auth'
 import GoogleProvider from "next-auth/providers/google";
 import {adminEmails} from '@/src/constants';
+import * as process from 'process';
 
 export const authOptions: AuthOptions = {
+    secret: process.env.NEXTAUTH_SECRET ?? 'notARealSecret',
     // Configure one or more authentication providers
     providers: [
         GoogleProvider({
