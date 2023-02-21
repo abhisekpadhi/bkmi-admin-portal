@@ -57,15 +57,15 @@ async function refreshAccessToken(token: any) {
 }
 
 export default NextAuth({
-    pages: {
-        signIn: '/login',
-    },
-    secret: process.env.NEXTAUTH_SECRET, //openssl rand -base64 32
+    // pages: {
+    //     signIn: '/login',
+    // },
+    // secret: process.env.NEXTAUTH_SECRET, //openssl rand -base64 32
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID!,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-            authorization: GOOGLE_AUTHORIZATION_URL,
+            // authorization: GOOGLE_AUTHORIZATION_URL,
         }),
     ],
     callbacks: {
@@ -116,8 +116,10 @@ export default NextAuth({
                 return token;
             }
 
+            return token
+
             // Access token has expired, try to update it
-            return refreshAccessToken(token);
+            // return refreshAccessToken(token);
         },
     },
 });
